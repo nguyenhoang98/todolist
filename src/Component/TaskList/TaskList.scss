@@ -1,0 +1,23 @@
+
+
+.tasklist{
+    width:60% ;
+    height: auto;
+    margin:auto ;
+    margin-top:60px ;
+    font-size: 1.6rem;
+}
+table{
+    width:100% ;
+    height: auto;
+    border-collapse: collapse;
+}
+table , tr , th , td{
+    border:1px solid #ccc ;
+}
+table tr:nth-child(even){
+    background: rgb(228, 226, 226) ;
+}
+td{
+    text-align:center ;
+}

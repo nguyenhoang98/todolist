@@ -1,0 +1,49 @@
+.taskform{
+    width:340px ;
+    height: auto;
+    background : white ;
+    padding:20px ;
+    position: fixed;
+    bottom:20px; 
+    right:0px ;
+    font-size: 1.6rem ;
+    box-shadow: 1px 1px 3px #333  ,-1px -1px 3px #333 ;
+    z-index: 999 ;
+    &__title{
+        font-weight: bold;
+        font-size: 2rem ;
+    }
+    &__close{
+        position: absolute;
+        top:10px; 
+        right:10px ;
+    }
+}
+.group-form{
+    margin:10px 0px ;
+    &__title{
+        display: block;
+    }
+    &__input{
+        width:100% ;
+        height: auto;
+        padding:6px ;
+        border-radius: 6px ;
+        border:1px solid #333 ;
+        outline: none;
+
+    }
+}
+.btn-submit{
+    background: blue ;
+    width:100% ;
+    height: auto;
+    border-radius: 0.6rem ;
+}
+.btn-reset-form{
+    background: red ;
+    width:100% ;
+    height: auto;
+    border-radius: 0.6rem ;
+    margin-top:10px ;
+}
