@@ -13,9 +13,9 @@ function TaskList(props) {
         <thead>
           <tr>
             <th>STT</th>
-            <th>Mã Nhân Viên</th>
-            <th>Tên Nhân Viên</th>
-            <th>Lương</th>
+            <th>Tên Công Việc</th>
+            <th>Trạng Thái</th>
+            <th>Ghi Chú</th>
             <th>Hành Động</th>
           </tr>
         </thead>

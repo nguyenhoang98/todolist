@@ -7,7 +7,7 @@ Header.propTypes = {};
 function Header(props) {
   return (
     <div className="header">
-      <h2>Ứng Dụng Quản Lí Nhân Viên</h2>
+      <h2>Ứng Dụng Quản Lí Công Việc</h2>
     </div>
   );
 }

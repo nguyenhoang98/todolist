@@ -7,24 +7,29 @@ TaskForm.propTypes = {};
 function TaskForm(props) {
   const [dataForm, setDataForm] = useState({
     id: "",
-    ma: "",
-    name: "",
-    salary: "",
+    title: "",
+    status: true,
+    description: "",
   });
-  const { addData, handleCloseForm, edit, updateData } = props;
+  const { addData, handleCloseForm, edit } = props;
   useEffect(() => {
     setDataForm({
       id: edit.id,
-      ma: edit.ma,
-      name: edit.name,
-      salary: edit.salary,
+      title: edit.title,
+      status: edit.status,
+      description: edit.description,
     });
   }, [edit]);
 
   function handleOnchange(e) {
     const target = e.target;
     const name = target.name;
-    const value = target.value;
+    const value =
+      target.value === "true"
+        ? true
+        : target.value === "false"
+        ? false
+        : target.value;
     const newDataForm = { ...dataForm };
     newDataForm[name] = value;
     setDataForm(newDataForm);
@@ -37,51 +42,54 @@ function TaskForm(props) {
   function handleOnResetForm() {
     setDataForm({
       id: "",
-      ma: "",
-      name: "",
-      salary: "",
+      title: "",
+      status: true,
+      description: "",
     });
   }
-  const { id, ma, name, salary } = dataForm;
+  const { id, title, status, description } = dataForm;
   return (
     <div className="taskform">
       <div className="taskform__title">
-        {id ? "Sửa Thông tin" : "Thêm nhân viên"}
+        {id ? "Cập Nhật Công việc" : "Thêm Công Việc"}
       </div>
       <span className="taskform__close" onClick={handleCloseForm}>
         <i className="fa fa-times" aria-hidden="true"></i>
       </span>
       <form onSubmit={handleOnsubmit}>
         <div className="group-form">
-          <label className="group-form__title">Mã nhân viên</label>
+          <label className="group-form__title"> Tên Công việc </label>
           <input
             type="text"
             className="group-form__input"
-            name="ma"
-            value={ma}
+            name="title"
+            value={title}
             onChange={handleOnchange}
+            placeholder="Tên Công việc"
             required
           />
         </div>
         <div className="group-form">
-          <label className="group-form__title">Tên nhân viên</label>
+          <label className="group-form__title"> Trạng Thái Công việc </label>
+          <select
+            name="status"
+            value={status}
+            onChange={handleOnchange}
+            className="group-form__input"
+          >
+            <option value={true}>Xong</option>
+            <option value={false}>Chưa Xong</option>
+          </select>
+        </div>
+        <div className="group-form">
+          <label className="group-form__title"> Ghi chú </label>
           <input
             type="text"
             className="group-form__input"
-            name="name"
-            value={name}
+            name="description"
+            value={description}
             onChange={handleOnchange}
-            required
-          />
-        </div>
-        <div className="group-form">
-          <label className="group-form__title">Lương</label>
-          <input
-            type="number"
-            className="group-form__input"
-            name="salary"
-            value={salary}
-            onChange={handleOnchange}
+            placeholder="Ghi Chú Công Việc"
             required
           />
         </div>

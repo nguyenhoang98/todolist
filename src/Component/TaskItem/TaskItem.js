@@ -9,9 +9,13 @@ function TaskItem(props) {
   return (
     <tr>
       <td>{index + 1}</td>
-      <td> {data.ma} </td>
-      <td> {data.name} </td>
-      <td> {data.salary} </td>
+      <td> {data.title} </td>
+      <td>
+        <span className={data.status ? "blue" : "red"}>
+          {data.status ? "Hoàn Thành rồi" : "Chưa Hoàn Thành nhé"}
+        </span>
+      </td>
+      <td> {data.description} </td>
       <td>
         <button
           className="btn btn-update"

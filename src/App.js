@@ -8,8 +8,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function App(props) {
   const [datas, setDatas] = useState(() => {
-    if (localStorage.getItem("nhanvien")) {
-      return JSON.parse(localStorage.getItem("nhanvien"));
+    if (localStorage.getItem("todolist")) {
+      return JSON.parse(localStorage.getItem("todolist"));
     } else {
       return [];
     }
@@ -17,12 +17,12 @@ function App(props) {
   const [isOpenForm, setIsOpenForm] = useState(false);
   const [edit, setEdit] = useState({
     id: "",
-    ma: "",
-    name: "",
-    salary: "",
+    title: "",
+    status: true,
+    description: "",
   });
   useEffect(() => {
-    localStorage.setItem("nhanvien", JSON.stringify(datas));
+    localStorage.setItem("todolist", JSON.stringify(datas));
   }, [datas]);
   function s4() {
     return Math.floor((1 + Math.random()) * 0x10000)
@@ -40,13 +40,13 @@ function App(props) {
       const newDatas = [...datas];
       newDatas[index] = data;
       setDatas(newDatas);
-      toast("Sửa Thông tin thành công :)");
+      toast("Cập Nhật Công Việc Thành Công :)");
     } else {
       data.id = createID();
       const newDatas = [...datas];
       newDatas.push(data);
       setDatas(newDatas);
-      toast("Thêm nhân viên thành công :)");
+      toast("Thêm Công Việc thành công :)");
     }
     closeForm();
   }
@@ -64,23 +64,23 @@ function App(props) {
     const newDatas = [...datas];
     newDatas.splice(index, 1);
     setDatas(newDatas);
-    toast("Xóa thành công :)");
+    toast("Xóa Công Việc Thành Công thành công :)");
   }
   function EditForm(data) {
     setEdit({
       id: data.id,
-      ma: data.ma,
-      name: data.name,
-      salary: data.salary,
+      title: data.title,
+      status: data.status,
+      description: data.description,
     });
     OpenForm();
   }
   function resetEdit() {
     setEdit({
       id: "",
-      ma: "",
-      name: "",
-      salary: "",
+      title: "",
+      status: true,
+      description: "",
     });
   }
   return (

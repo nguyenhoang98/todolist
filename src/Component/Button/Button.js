@@ -8,7 +8,7 @@ function Button(props) {
   const { handleOpenForm } = props;
   return (
     <button className="btn btn-show-form" onClick={handleOpenForm}>
-      Mở Form{" "}
+      Thêm Công Việc
     </button>
   );
 }
