@@ -95,7 +95,7 @@ function TaskForm(props) {
         </div>
         <div className="group-form">
           <button type="submit" className="btn btn-submit">
-            Thêm nhân viên
+            Lưu
           </button>
           <button
             type="button"
